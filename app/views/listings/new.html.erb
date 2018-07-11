@@ -1,0 +1,129 @@
+<%= form_with scope: :listing, url: listings_path, local: true do |form| %>
+	<p>
+		<%= form.label :title %><br>
+		<%= form.text_field :title %>
+	</p>
+
+	<p>
+		<%= form.label :address %><br>
+		<%= form.text_area :address %>
+	</p>
+
+
+	<p>
+		<%= form.label :city %><br>
+		<%= form.text_field :city %>
+	</p>
+
+	<p>
+		<%= form.label :description %><br>
+		<%= form.text_area :description %>
+	</p>
+
+	<p>
+		<%= form.label :pricing %><br>
+		<%= form.text_field :pricing %>
+	</p>
+
+	<p>
+		<%= form.label :currency %><br>
+		<%= form.text_field :currency %>
+	</p>
+
+	<p>
+		<%= form.label :home_type %><br>
+		Apartment
+		<%= form.radio_button :home_type, "Apartment" %>
+		House
+		<%= form.radio_button :home_type, "House" %>
+		Other
+		<%= form.radio_button :home_type, "Other" %>
+	</p>
+
+
+	<p>
+		<%= form.label :room_type %><br>
+		Entire Lot
+		<%= form.radio_button :room_type, "Entire Lot" %>
+		Single Room
+		<%= form.radio_button :room_type, "Single Room" %>
+		Shared Room
+		<%= form.radio_button :room_type, "Shared Room" %>
+		Other
+		<%= form.radio_button :room_tupe, "Other" %>
+	</p>
+
+	<p>
+		<%= form.label :room_number %><br>
+		1
+		<%= form.radio_button :room_number, "1" %>
+		2
+		<%= form.radio_button :room_number, "2" %>
+		3
+		<%= form.radio_button :room_number, "3" %>
+		4
+		<%= form.radio_button :room_number, "4" %>
+		5
+		<%= form.radio_button :room_number, "5" %>
+		6
+		<%= form.radio_button :room_number, "6" %>
+		7
+		<%= form.radio_button :room_number, "7" %>
+		8+
+		<%= form.radio_button :room_number, "8" %>
+	</p>
+
+	<p>
+		<%= form.label :accomodate %><br>
+		1
+		<%= form.radio_button :accomodate, "1" %>
+		2
+		<%= form.radio_button :accomodate, "2" %>
+		3
+		<%= form.radio_button :accomodate, "3" %>
+		4
+		<%= form.radio_button :accomodate, "4" %>
+		5
+		<%= form.radio_button :accomodate, "5" %>
+		6
+		<%= form.radio_button :accomodate, "6" %>
+		7
+		<%= form.radio_button :accomodate, "7" %>
+		8+
+		<%= form.radio_button :accomodate, "8" %>
+	</p>
+
+	<p>
+		<%= form.label :amenities %><br>
+		Self check-in
+		<%= form.check_box :amenities, {:multiple => true}, "Self check-in", nil %>
+		Pool
+		<%= form.check_box :amenities, {:multiple => true}, "Pool", nil %>
+		Gym
+		<%= form.check_box :amenities, {:multiple => true}, "Gym", nil %>
+		Washer
+		<%= form.check_box :amenities, {:multiple => true}, "Washer", nil %>
+		Dryer
+		<%= form.check_box :amenities, {:multiple => true}, "Dryer", nil %>
+		Heating
+		<%= form.check_box :amenities, {:multiple => true}, "Heating", nil %>
+		Air Conditioning
+		<%= form.check_box :amenities, {:multiple => true}, "Air Conditioning", nil %>
+		Wifi
+		<%= form.check_box :amenities, {:multiple => true}, "Wifi", nil %>
+		Parking
+		<%= form.check_box :amenities, {:multiple => true}, "Parking", nil %>
+		Pets Allowed
+		<%= form.check_box :amenities, {:multiple => true}, "Pets Allowed", nil %>
+	</p>
+
+	<p>
+		<%= form.label :images %><br>
+		<%= form.file_field :images,  multiple: true %>
+	</p>
+
+
+	<p>
+		<%= form.submit %><br>
+	</p>
+	<% end %>

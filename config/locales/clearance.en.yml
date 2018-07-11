@@ -1,0 +1,56 @@
+---
+en:
+  clearance:
+    models:
+      clearance_mailer:
+        change_password: 更换密码
+  clearance_mailer:
+    change_password:
+      closing: 如果你没有申请更换密码，请忽视这份邮件
+      link_text: 更换密码
+      opening: "有个人，希望是你，请求了我们更换你的密码："
+  flashes:
+    failure_after_create: 资料错误
+    failure_after_update: 密码不可以是空白的
+    failure_when_forbidden: 请再次检查你的链接或者重新提交表格
+    failure_when_not_signed_in: 请登陆以继续
+  helpers:
+    label:
+      password:
+        email: 电子邮箱
+      password_reset:
+        password: 选择新的密码
+    submit:
+      password:
+        submit: 重新设置密码
+      password_reset:
+        submit: 储存这个密码
+      session:
+        submit: 登入
+      user:
+        create: 注册
+  layouts:
+    application:
+      sign_in: 登入
+      sign_out: 登出
+  passwords:
+    create:
+      description: You will receive an email within the next few minutes. It
+        contains instructions for changing your password.
+    edit:
+      description: Your password has been reset. Choose a new password below.
+      title: Change your password
+    new:
+      description: To be emailed a link to reset your password, please enter
+        your email address.
+      title: Reset your password
+  sessions:
+    form:
+      forgot_password: 忘记密码？
+      sign_up: 注册
+    new:
+      title: 登入账号
+  users:
+    new:
+      sign_in: 登入
+      title: 注册

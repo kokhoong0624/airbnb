@@ -1,0 +1,20 @@
+<% if signed_in? %>
+<h1>Welcome <%= current_user.email %></h1>
+<% else %>
+<h1> Welcome! Please sign in! </h1>
+<%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+<% end %>
+
+<br>
+<% @listings.each do |x| %>
+<p>
+Title: <%= x.title %><br>
+City: <%= x.city %><br>
+Pricing: <%= x.pricing %> <%= x.currency %> per night<br>
+<a href="/listings/<%=x.id%>">Click to view more</a><br>
+</p>
+<% end %>
+
+<%= paginate @listings %>
+<%= page_entries_info @listings %>
+

@@ -1,0 +1,92 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p>
+  <strong>Title:</strong>
+  <%= @listing.title %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>    	
+
+<p>
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <strong>Home Type:</strong>
+  <%= @listing.home_type %>
+</p>    
+
+<p>
+  <strong>Room Type:</strong>
+  <%= @listing.room_type %>
+</p>
+
+<p>
+  <strong>Number of Rooms:</strong>
+  <%= @listing.room_number %>
+</p>
+
+<p>
+  <strong>Price per day:</strong>
+  <%= @listing.pricing %>
+  <%= @listing.currency %>
+</p> 
+
+<p>
+  <strong>Amenities:</strong>
+  <% @listing.amenities.each do |l| %>
+  <li> <%= l %> </li>
+  <% end %>
+</p>                 
+
+<p>
+  <strong>Verified:</strong>
+  <%= @listing.verification %>
+</p> 
+
+<% @listing.images.each do |image| %>
+<%= image_tag image.url %>
+<% end %>
+
+
+<%= link_to "Verify This Listing", verification_path(@listing), method: :patch %>
+
+
+
+<%= form_with scope: :reservation, url: listing_reservations_path(@listing), local: true do |form| %>
+<p>
+<%= form.label "start date" %>
+<%= form.text_field :start_date, id: "datepicker1", width: 276 %>
+<br>
+<%= form.label "end date" %>
+<%= form.text_field :end_date, id: "datepicker2", width: 276 %>
+</p>
+
+<%= form.submit %>
+<% end %>
+
+
+<script>
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+
+        $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+</script>
+
+</body>
