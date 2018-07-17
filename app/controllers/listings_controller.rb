@@ -19,6 +19,7 @@ before_action :find_listing, only: [:edit,:show,:destroy,:verification]
 
 	end
 
+
 	def show
 	end
 
@@ -37,11 +38,18 @@ before_action :find_listing, only: [:edit,:show,:destroy,:verification]
 		end
 	end
 
+	def search
+		@listings = Listing.order(:title)
+		@listings = @listings.where("city like ?", "%#{params[:city]}%") if params[:city].present?
+		@listings = @listings.where("pricing >= ?", min_price) if params[:min_price].present?
+		@listings = @listings.where("pricing <= ?", max_price) if params[:max_price].present?
+		render "search"
+	end
 
 
 	private 
 	def listing_params
-    params.require(:listing).permit(:title, :address, :city, :description, :pricing, :home_type, :room_type, :room_number, :accomodate, {images: []}, :amenities => [])
+    	params.require(:listing).permit(:title, :address, :city, :description, :pricing, :home_type, :room_type, :room_number, :accomodate, {images: []}, :amenities => [])
   	end
 
   	def find_listing

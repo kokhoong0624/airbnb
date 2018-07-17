@@ -2,7 +2,7 @@ class Reservation < ApplicationRecord
 	belongs_to :user
 	belongs_to :listing
 	validate :overlapping_reservations, :check_dates, :end_date_is_after_start_date
-
+	before_save :calculate_total_price
 
 
 	def overlapping_reservations
@@ -28,13 +28,9 @@ class Reservation < ApplicationRecord
 	end
 
 
-	# def calculate_total_price
-	# 	self.total_price = self.listing.pricing *(self.end_date - self.start_date).to_i
-	# end
-
-
-
-
+	def calculate_total_price
+	 	self.total_price = self.listing.pricing * (self.end_date - self.start_date).to_i
+	end
 
 
 	private

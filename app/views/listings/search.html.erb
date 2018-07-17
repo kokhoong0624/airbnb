@@ -1,0 +1,9 @@
+<br>
+<% @listings.each do |x| %>
+	<p>
+		Title: <%= x.title %><br>
+		City: <%= x.city %><br>
+		Pricing: <%= x.pricing %> <%= x.currency %> per night<br>
+		<a href="/listings/<%=x.id%>" data-turbolinks='false'>Click to view more</a><br>
+	</p>
+<% end %>
