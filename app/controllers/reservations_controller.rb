@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
 
 		@reservation.listing_id = params[:listing_id]
 		if @reservation.save
+			ReservationJob.perform_later(current_user.email,@reservation.listing.user.email,@reservation)
 			redirect_to reservation_path(@reservation.id)
 		else
 			redirect_back(fallback_location: root_path)		
@@ -13,6 +14,9 @@ class ReservationsController < ApplicationController
 	end
 
 	def show
+		@reservation = Reservation.find(params[:id])
+		  @client_token = Braintree::ClientToken.generate
+
 	end
 
 	private 

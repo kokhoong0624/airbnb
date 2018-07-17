@@ -36,6 +36,8 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'braintree'
+gem 'sidekiq'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

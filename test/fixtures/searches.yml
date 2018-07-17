@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  min_price: 9.99
+  max_price: 9.99
+
+two:
+  city: MyString
+  min_price: 9.99
+  max_price: 9.99
