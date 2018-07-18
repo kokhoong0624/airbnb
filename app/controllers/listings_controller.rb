@@ -41,8 +41,8 @@ before_action :find_listing, only: [:edit,:show,:destroy,:verification]
 	def search
 		@listings = Listing.order(:title)
 		@listings = @listings.where("city like ?", "%#{params[:city]}%") if params[:city].present?
-		@listings = @listings.where("pricing >= ?", min_price) if params[:min_price].present?
-		@listings = @listings.where("pricing <= ?", max_price) if params[:max_price].present?
+		@listings = @listings.where("pricing >= ?", "#{params[min_price]}") if params[:min_price].present?
+		@listings = @listings.where("pricing <= ?", "#{params[max_price]}") if params[:max_price].present?
 		render "search"
 	end
 
